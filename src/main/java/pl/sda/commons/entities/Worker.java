@@ -1,32 +1,32 @@
 package pl.sda.commons.entities;
 
-
-
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @ToString
-@Table (name = "Worker")
+@Table(name = "Worker")
 public class Worker {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "workerID")
-    Integer workerID;
+    private Integer workerID;
+
     @Column(name = "name")
-    String name;
+    private String name;
+
     @Column(name = "lastName")
-    String lastName;
+    private String lastName;
+
     @Column(name = "position")
-    String position;
+    private String position;
 
     @ManyToMany
     @JoinTable(

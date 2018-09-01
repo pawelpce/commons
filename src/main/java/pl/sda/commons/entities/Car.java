@@ -1,43 +1,44 @@
 package pl.sda.commons.entities;
 
-
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @ToString
 @Table(name = "Car")
 public class Car {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "carID")
-    Integer carID;
-    @Column(name = "color")
-    String color;
-    @Column(name = "type")
-    String type;
-    @Column(name = "mark")
-    String mark;
-    @Column(name = "year")
-    Integer year;
-    @Column(name = "VIN")
-    Long VIN;
+    private Integer carID;
 
+    @Column(name = "color")
+    private String color;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "mark")
+    private String mark;
+
+    @Column(name = "year")
+    private Integer year;
+
+    @Column(name = "VIN")
+    private String VIN;
 
     @ManyToOne
     @JoinColumn(name = "clientID")
     private Client client;
 
-
-    @ManyToMany (mappedBy = "cars")
+    @ManyToMany(mappedBy = "cars", cascade = CascadeType.ALL)
     private List<Worker> workers;
 
 }
