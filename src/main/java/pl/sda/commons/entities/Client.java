@@ -25,8 +25,7 @@ public class Client {
     @Column(name = "phone")
     Long phone;
 
-    @OneToMany
-    @JoinColumn(name = "carID")
+    @OneToMany(mappedBy = "client")
     private List<Car> cars;
 
 
