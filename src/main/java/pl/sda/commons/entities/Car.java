@@ -1,6 +1,7 @@
 package pl.sda.commons.entities;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
 @ToString
 @Table(name = "Car")
 public class Car {
@@ -28,8 +30,6 @@ public class Car {
     Integer year;
     @Column(name = "VIN")
     Long VIN;
-    @Column(name = "clientID")
-    Integer clientID;
 
 
     @ManyToOne
