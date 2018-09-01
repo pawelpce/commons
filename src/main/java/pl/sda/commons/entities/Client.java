@@ -4,10 +4,8 @@ package pl.sda.commons.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,6 +22,11 @@ public class Client {
     String lastName;
     @Column(name = "phone")
     Long phone;
+
+    @OneToMany
+    @JoinColumn(name = "carID")
+    private List<Car> cars;
+
 
     @Override
     public String toString() {

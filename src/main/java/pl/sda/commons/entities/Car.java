@@ -3,11 +3,10 @@ package pl.sda.commons.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,6 +31,14 @@ public class Car {
     Integer clientID;
 
 
+    @ManyToOne
+    @JoinColumn(name = "clientID")
+    private Client client;
+
+
+    @ManyToMany (mappedBy = "cars")
+    private List<Worker> workers;
+
     @Override
     public String toString() {
         return "Car{" +
@@ -42,6 +49,8 @@ public class Car {
                 ", year=" + year +
                 ", VIN=" + VIN +
                 ", clientID=" + clientID +
+                ", client=" + client +
+                ", workers=" + workers +
                 '}';
     }
 }

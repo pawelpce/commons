@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.CharArrayReader;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,6 +23,15 @@ public class Worker {
     String lastName;
     @Column(name = "position")
     String position;
+
+    @ManyToMany
+    @JoinTable(
+            name = "work_car",
+            joinColumns = @JoinColumn(name = "workerID"),
+            inverseJoinColumns = @JoinColumn(name = "carID")
+    )
+    private List<Car> cars;
+
 
     @Override
     public String toString() {
