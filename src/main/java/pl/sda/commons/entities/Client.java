@@ -3,6 +3,7 @@ package pl.sda.commons.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "Client")
 public class Client {
 
@@ -28,13 +30,4 @@ public class Client {
     private List<Car> cars;
 
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "clientID=" + clientID +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone=" + phone +
-                '}';
-    }
 }

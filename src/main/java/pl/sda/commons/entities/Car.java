@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "Car")
 public class Car {
 
@@ -39,18 +40,4 @@ public class Car {
     @ManyToMany (mappedBy = "cars")
     private List<Worker> workers;
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carID=" + carID +
-                ", color='" + color + '\'' +
-                ", type='" + type + '\'' +
-                ", mark='" + mark + '\'' +
-                ", year=" + year +
-                ", VIN=" + VIN +
-                ", clientID=" + clientID +
-                ", client=" + client +
-                ", workers=" + workers +
-                '}';
-    }
 }

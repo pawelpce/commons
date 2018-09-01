@@ -3,14 +3,15 @@ package pl.sda.commons.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.CharArrayReader;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@ToString
 @Table (name = "Worker")
 public class Worker {
 
@@ -32,14 +33,4 @@ public class Worker {
     )
     private List<Car> cars;
 
-
-    @Override
-    public String toString() {
-        return "Worker{" +
-                "workerID=" + workerID +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", position='" + position + '\'' +
-                '}';
-    }
 }
