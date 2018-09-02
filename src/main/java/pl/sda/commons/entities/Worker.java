@@ -22,18 +22,18 @@ public class Worker {
     private Integer workerID;
 
     @NotNull
-    @Size(max = 3)
+    @Size(min = 3)
     @Column(name = "name")
     private String name;
 
     @Column(name = "lastName")
     @NotNull
-    @Size(max = 3)
+    @Size(min = 3)
     private String lastName;
 
     @Column(name = "position")
     @NotNull
-    @Size(max = 3)
+    @Size(min = 3)
     private String position;
 
     @ManyToMany

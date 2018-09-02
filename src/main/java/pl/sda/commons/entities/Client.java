@@ -37,7 +37,7 @@ public class Client {
     @Column(name = "phone")
     private Long phone;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Car> cars;
 
 }

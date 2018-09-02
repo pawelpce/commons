@@ -50,7 +50,7 @@ public class Car {
     @JoinColumn(name = "clientID")
     private Client client;
 
-    @ManyToMany(mappedBy = "cars")
+    @ManyToMany(mappedBy = "cars", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Worker> workers;
 
 }
