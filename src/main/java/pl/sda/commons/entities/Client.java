@@ -1,32 +1,43 @@
 package pl.sda.commons.entities;
 
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @ToString
 @Table(name = "Client")
 public class Client {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clientID")
-    Integer clientID;
+    private Integer clientID;
+
+    @NotNull
+    @Size(min = 3)
     @Column(name = "name")
-    String name;
+    private String name;
+
+    @NotNull
+    @Size(min = 3)
     @Column(name = "lastName")
-    String lastName;
+    private String lastName;
+
+    @NotNull
+    @Min(9)
     @Column(name = "phone")
-    Long phone;
+    private Long phone;
 
     @OneToMany(mappedBy = "client")
     private List<Car> cars;
-
 
 }
