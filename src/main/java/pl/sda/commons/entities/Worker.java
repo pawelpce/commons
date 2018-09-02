@@ -1,5 +1,6 @@
 package pl.sda.commons.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 @Table(name = "Worker")
 public class Worker {
 
@@ -36,6 +36,7 @@ public class Worker {
     @Size(min = 3)
     private String position;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "work_car",
@@ -44,4 +45,13 @@ public class Worker {
     )
     private List<Car> cars;
 
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "workerID=" + workerID +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
 }

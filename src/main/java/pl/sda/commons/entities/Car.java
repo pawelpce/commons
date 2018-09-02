@@ -2,6 +2,7 @@ package pl.sda.commons.entities;
 
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 @Table(name = "Car")
 public class Car {
 
@@ -50,7 +50,17 @@ public class Car {
     @JoinColumn(name = "clientID")
     private Client client;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "cars", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Worker> workers;
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carID=" + carID +
+                ", color='" + color + '\'' +
+                ", type='" + type + '\'' +
+                ", mark='" + mark + '\'' +
+                '}';
+    }
 }
