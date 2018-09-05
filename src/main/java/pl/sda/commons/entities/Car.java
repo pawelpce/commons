@@ -29,7 +29,7 @@ public class Car {
     @Column(name = "year")
     Integer year;
     @Column(name = "VIN")
-    Long VIN;
+    String VIN;
 
 
     @ManyToOne
@@ -40,4 +40,14 @@ public class Car {
     @ManyToMany (mappedBy = "cars")
     private List<Worker> workers;
 
+    public Car(Integer carID, String color, String type, String mark, Integer year, String VIN, Client client, List<Worker> workers) {
+        this.carID = carID;
+        this.color = color;
+        this.type = type;
+        this.mark = mark;
+        this.year = year;
+        this.VIN = VIN;
+        this.client = client;
+        this.workers = workers;
+    }
 }

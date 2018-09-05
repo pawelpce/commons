@@ -30,5 +30,11 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Car> cars;
 
-
+    public Client(Integer clientID, String name, String lastName, Long phone, List<Car> cars) {
+        this.clientID = clientID;
+        this.name = name;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.cars = cars;
+    }
 }

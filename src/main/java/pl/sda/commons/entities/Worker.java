@@ -34,10 +34,11 @@ public class Worker {
     )
     private List<Car> cars;
 
-    public Worker(Integer workerID, String name, String lastName, String position) {
+    public Worker(Integer workerID, String name, String lastName, String position, List<Car> cars) {
         this.workerID = workerID;
         this.name = name;
         this.lastName = lastName;
         this.position = position;
+        this.cars = cars;
     }
 }
