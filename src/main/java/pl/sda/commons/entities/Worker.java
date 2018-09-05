@@ -1,7 +1,5 @@
 package pl.sda.commons.entities;
 
-
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,4 +34,10 @@ public class Worker {
     )
     private List<Car> cars;
 
+    public Worker(Integer workerID, String name, String lastName, String position) {
+        this.workerID = workerID;
+        this.name = name;
+        this.lastName = lastName;
+        this.position = position;
+    }
 }
