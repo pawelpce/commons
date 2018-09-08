@@ -31,7 +31,9 @@ hs_err_pid*
 .classpath
 .project
 .settings/
+*.csv
 target/
+reports/
 
 # End of https://www.gitignore.io/api/java
 
