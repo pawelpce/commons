@@ -26,7 +26,7 @@ public class Worker {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
 //    @NotNull
 //    @Size(min = 3)
     private String lastName;
